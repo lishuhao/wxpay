@@ -71,3 +71,7 @@ func (req UnifiedOrderRequest)Request(signKey string) (response UnifiedOrderResp
 
 	return
 }
+
+func (resp UnifiedOrderResponse)Success() bool {
+	return resp.ReturnCode == "SUCCESS" && resp.ResultCode == "SUCCESS"
+}
