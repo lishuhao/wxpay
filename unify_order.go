@@ -18,6 +18,7 @@ type UnifiedOrderRequest struct {
 	NotifyUrl string `xml:"notify_url"`
 	Sign string `xml:"sign"`
 	TimeExpire string `xml:"time_expire"`
+	Attach string `xml:"attach"`
 
 	TradeType string `xml:"trade_type"`
 	NonceStr string `xml:"nonce_str"`
