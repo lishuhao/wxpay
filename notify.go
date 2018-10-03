@@ -13,6 +13,7 @@ type NotifyRequest struct {
 	OutTradeNo string `xml:"out_trade_no"`
 	TotalFee string `xml:"total_fee"`//int 单位：分
 	FeeType string `xml:"fee_type"`
+	Attach string `xml:"attach"`
 }
 
 type NotifyResponse struct {
