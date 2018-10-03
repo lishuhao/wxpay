@@ -3,7 +3,6 @@ package wxpay
 import (
 	"crypto/md5"
 	"encoding/hex"
-	"fmt"
 	"reflect"
 	"sort"
 	"strings"
@@ -40,7 +39,7 @@ func signReq(req interface{},signKey string) (sign string,err error) {
 		reqSlice = append(reqSlice,k+"="+reqMap[k])
 	}
 	originStr := strings.Join(reqSlice,"&")+"&key="+signKey
-	fmt.Println(originStr)
+	//fmt.Println(originStr)
 
 	md5Byte:=md5.Sum([]byte(originStr))
 	md5Str:=hex.EncodeToString(md5Byte[:])
