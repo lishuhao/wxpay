@@ -2,7 +2,6 @@ package wxpay
 
 import (
 	"encoding/xml"
-	"fmt"
 )
 //查询订单
 type QueryOrderRequest struct {
@@ -25,6 +24,8 @@ type QueryOrderResponse struct {
 	OutTradeNo string `xml:"out_trade_no"`
 	TimeEnd string `xml:"time_end"`
 	TradeStateDesc string `xml:"trade_state_desc"`
+	Appid string `xml:"appid"`
+	MchId string `xml:"mch_id"`
 }
 
 //统一下单
@@ -35,11 +36,11 @@ func (req QueryOrderRequest)Query(signKey string) (response QueryOrderResponse,e
 		return
 	}
 	req.Sign = sign
-	byteReq,err:=xml.MarshalIndent(req,"  ","  ")
+	byteReq,err:=xml.Marshal(req)
 	if err != nil {
 		return
 	}
-	fmt.Println(string(byteReq))
+	//fmt.Println(string(byteReq))
 	resp,err:=HttpPost(wxpayOrderQueryUrl,byteReq)
 	if err != nil {
 		return
